@@ -12,6 +12,7 @@ const String kPasswordResetAnim =
     "assets/lottie_animations/password_reset.json";
 const String kDeleteAnim = "assets/lottie_animations/delete.json";
 const String kLoadingRocket = "assets/lottie_animations/rocket_animation.json";
+const String kNoSessions = "assets/lottie_animations/noSessions.json";
 const String kStartupSounds = "assets/sounds/startup.mp3";
 
 enum AuthType { emailLogin, emailRegister }

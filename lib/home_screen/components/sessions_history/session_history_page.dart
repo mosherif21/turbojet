@@ -16,6 +16,7 @@ class SessionHistoryPage extends StatelessWidget {
   final GetScreenType screenType;
   @override
   Widget build(BuildContext context) {
+    final screenWidth = getScreenWidth(context);
     return Scaffold(
       appBar: AppBar(
         leading: RegularBackButton(padding: 0),
@@ -36,33 +37,43 @@ class SessionHistoryPage extends StatelessWidget {
               crossAxisCount: screenType.isPhone ? 2 : 4,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
-              childAspectRatio: AppInit.isWeb && !AppInit.isMobile ? 1.3 : 0.85,
+              childAspectRatio: AppInit.isWeb && !AppInit.isMobile ? 1.3 : 0.9,
               children: [
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Combustion In",
                   double.parse(sessionModel.combustionIn.toString()),
                   "°C",
                   max: 1024,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Combustion Out",
                   double.parse(sessionModel.combustionOut.toString()),
                   "°C",
                   max: 1024,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Exhaust",
                   double.parse(sessionModel.exhaust.toString()),
                   "°C",
                   max: 1024,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Turbine",
                   double.parse(sessionModel.turbine.toString()),
                   "°C",
                   max: 1024,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Oil In",
                   double.parse(sessionModel.oilIn.toString()),
                   "°C",
@@ -70,6 +81,8 @@ class SessionHistoryPage extends StatelessWidget {
                   min: -55,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Oil Out",
                   double.parse(sessionModel.oilOut.toString()),
                   "°C",
@@ -77,16 +90,8 @@ class SessionHistoryPage extends StatelessWidget {
                   min: -55,
                 ),
                 buildGauge(
-                  "Compression In",
-                  double.parse(sessionModel.combustionIn.toString()),
-                  "KPA",
-                ),
-                buildGauge(
-                  "Compressor Out",
-                  double.parse(sessionModel.compressorOut.toString()),
-                  "KPA",
-                ),
-                buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "RPM",
                   double.parse(sessionModel.rpm.toString()),
                   "Rev/min",
@@ -101,6 +106,8 @@ class SessionHistoryPage extends StatelessWidget {
   }
 
   Widget buildGauge(
+    double screenWidth,
+    bool isPhone,
     String label,
     double value,
     String measuringUnit, {
@@ -124,7 +131,10 @@ class SessionHistoryPage extends StatelessWidget {
             const SizedBox(height: 8),
             SpeedometerChart(
               titleMargin: 20,
-              dimension: 180,
+              dimension:
+                  AppInit.isWeb && !AppInit.isMobile && !isPhone
+                      ? screenWidth * 0.13
+                      : screenWidth * 0.26,
               minValue: min,
               maxValue: max,
               value: value,

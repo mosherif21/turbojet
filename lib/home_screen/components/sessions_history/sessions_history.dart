@@ -15,6 +15,7 @@ class SessionsHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = HomeScreenController.instance;
     final screenType = GetScreenType(context);
+    final screenHeight = getScreenHeight(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -150,7 +151,7 @@ class SessionsHistory extends StatelessWidget {
                           () =>
                               !controller.loadingSessions.value &&
                                       controller.sessionsHistoryList.isEmpty
-                                  ? const SizedBox()
+                                  ? const NoSessionsWidget()
                                   : GridView.builder(
                                     physics: const ScrollPhysics(),
                                     shrinkWrap: true,
@@ -179,7 +180,7 @@ class SessionsHistory extends StatelessWidget {
                                           child: FadeInAnimation(
                                             child:
                                                 controller.loadingSessions.value
-                                                    ? const SizedBox()
+                                                    ? const LoadingSessionWidget()
                                                     : SessionWidget(
                                                       sessionDate: getOrderDateTime(
                                                         controller

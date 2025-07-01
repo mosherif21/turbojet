@@ -25,8 +25,6 @@ class HomeScreenController extends GetxController {
   final turbine = 0.0.obs;
   final oilIn = 0.0.obs;
   final oilOut = 0.0.obs;
-  final compressionIn = 0.0.obs;
-  final compressorOut = 0.0.obs;
   final rpm = 0.0.obs;
   final pageIndex = 0.obs;
   late final PageController pageController;
@@ -272,8 +270,6 @@ class HomeScreenController extends GetxController {
         turbine.value = data['turbine'];
         oilIn.value = data['oil_in'];
         oilOut.value = data['oil_out'];
-        compressionIn.value = data['compression_in'];
-        compressorOut.value = data['compressor_out'];
         rpm.value = data['rpm'];
 
         await _firestore
@@ -287,8 +283,7 @@ class HomeScreenController extends GetxController {
               'turbine': turbine.value,
               'oil_in': oilIn.value,
               'oil_out': oilOut.value,
-              'compression_in': compressionIn.value,
-              'compressor_out': compressorOut.value,
+
               'rpm': rpm.value,
             });
       }
@@ -413,8 +408,7 @@ class HomeScreenController extends GetxController {
     turbine.value = 0;
     oilIn.value = 0;
     oilOut.value = 0;
-    compressionIn.value = 0;
-    compressorOut.value = 0;
+
     rpm.value = 0;
   }
 

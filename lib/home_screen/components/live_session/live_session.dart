@@ -40,8 +40,8 @@ class LiveSession extends StatelessWidget {
                 titleMargin: 20,
                 dimension:
                     AppInit.isWeb && !AppInit.isMobile && !isPhone
-                        ? screenWidth * 0.12
-                        : 160,
+                        ? screenWidth * 0.13
+                        : screenWidth * 0.26,
                 minValue: min,
                 maxValue: max,
                 value: value.value.toDouble(),
@@ -153,20 +153,6 @@ class LiveSession extends StatelessWidget {
                   "°C",
                   max: 125,
                   min: -55,
-                ),
-                buildGauge(
-                  screenWidth,
-                  screenType.isPhone,
-                  "Compression In",
-                  controller.compressionIn,
-                  "KPA",
-                ),
-                buildGauge(
-                  screenWidth,
-                  screenType.isPhone,
-                  "Compressor Out",
-                  controller.compressorOut,
-                  "KPA",
                 ),
                 buildGauge(
                   screenWidth,

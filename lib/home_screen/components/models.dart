@@ -11,8 +11,6 @@ class EngineSessionModel {
   final double? turbine;
   final double? oilIn;
   final double? oilOut;
-  final double? compressionIn;
-  final double? compressorOut;
   final double? rpm;
 
   EngineSessionModel({
@@ -26,8 +24,6 @@ class EngineSessionModel {
     this.turbine,
     this.oilIn,
     this.oilOut,
-    this.compressionIn,
-    this.compressorOut,
     this.rpm,
   });
 
@@ -46,8 +42,6 @@ class EngineSessionModel {
       turbine: (data['turbine'] as num?)?.toDouble(),
       oilIn: (data['oil_in'] as num?)?.toDouble(),
       oilOut: (data['oil_out'] as num?)?.toDouble(),
-      compressionIn: (data['compression_in'] as num?)?.toDouble(),
-      compressorOut: (data['compressor_out'] as num?)?.toDouble(),
       rpm: (data['rpm'] as num?)?.toDouble(),
     );
   }

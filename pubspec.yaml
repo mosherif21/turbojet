@@ -42,6 +42,7 @@ dev_dependencies:
   just_audio: ^0.10.4
   pull_to_refresh: ^2.0.0
   flutter_staggered_animations: ^1.1.1
+  shimmer: ^3.0.0
 
 icons_launcher:
   image_path: "assets/images/logo.jpg"

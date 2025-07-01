@@ -112,10 +112,10 @@ class GetScreenType {
 
   GetScreenType(this.context);
 
-  bool get isPhone => MediaQuery.of(context).size.width < 600;
+  bool get isPhone => MediaQuery.of(context).size.width < 900;
 
   bool get isTablet =>
-      MediaQuery.of(context).size.width >= 600 &&
+      MediaQuery.of(context).size.width >= 900 &&
       MediaQuery.of(context).size.width < 1200;
 
   bool get isDesktop => MediaQuery.of(context).size.width >= 1200;
