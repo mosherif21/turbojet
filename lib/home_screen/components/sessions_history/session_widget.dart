@@ -37,7 +37,11 @@ class SessionWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Status: ${stoppingStatus == "stopped" ? "Normally stopped" : "Emergency stopped"}",
+                  "Status: ${stoppingStatus == "stopped"
+                      ? "Normally stopped"
+                      : stoppingStatus == "auto_stopped"
+                      ? "Auto stopped"
+                      : "Emergency stopped"}",
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 15,
