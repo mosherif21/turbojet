@@ -272,6 +272,17 @@ class HomeScreenController extends GetxController {
         oilOut.value = data['oil_out'];
         rpm.value = data['rpm'];
 
+        final autoStopped = data['auto_stopped'] ?? false;
+        final engineRunningFlag = data['engine_running'] ?? false;
+
+        if (!engineRunningFlag && autoStopped && isSessionRunning.value) {
+          showSnackBar(
+            text: "Engine auto-stopped due to zero RPM",
+            snackBarType: SnackBarType.warning,
+          );
+          await _endSession('auto_stopped');
+        }
+
         await _firestore
             .collection('engine_sessions')
             .doc(currentSessionId)
@@ -283,7 +294,6 @@ class HomeScreenController extends GetxController {
               'turbine': turbine.value,
               'oil_in': oilIn.value,
               'oil_out': oilOut.value,
-
               'rpm': rpm.value,
             });
       }
