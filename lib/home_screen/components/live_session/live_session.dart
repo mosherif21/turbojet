@@ -199,7 +199,7 @@ class LiveSession extends StatelessWidget {
                       }
                     },
                     onChanges: (value) {
-                      Timer(Duration(seconds: 3), () {
+                      Timer(Duration(seconds: 6), () {
                         bool engineRunning = controller.isSessionRunning.value;
                         bool shouldBeSelected = engineRunning == value;
                         if (!shouldBeSelected) {

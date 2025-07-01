@@ -221,7 +221,7 @@ class HomeScreenController extends GetxController {
     try {
       final response = await http
           .post(Uri.parse('$espIp/start'))
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 6));
       if (response.statusCode == 200) {
         AppInit.player.setAsset(kStartupSounds).whenComplete(() {
           AppInit.player.play();
