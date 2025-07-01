@@ -18,7 +18,7 @@ import '../components/models.dart';
 
 class HomeScreenController extends GetxController {
   static HomeScreenController get instance => Get.find();
-  final String espIp = "http://192.168.112.117";
+  final String espIp = "http://172.20.10.2";
   final combustionIn = 0.obs;
   final combustionOut = 0.obs;
   final exhaust = 0.obs;
