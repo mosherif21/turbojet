@@ -18,16 +18,16 @@ import '../components/models.dart';
 
 class HomeScreenController extends GetxController {
   static HomeScreenController get instance => Get.find();
-  final String espIp = "http://172.20.10.2";
-  final combustionIn = 0.obs;
-  final combustionOut = 0.obs;
-  final exhaust = 0.obs;
-  final turbine = 0.obs;
-  final oilIn = 0.obs;
-  final oilOut = 0.obs;
-  final compressionIn = 0.obs;
-  final compressorOut = 0.obs;
-  final rpm = 0.obs;
+  final String espIp = "http://172.20.10.3";
+  final combustionIn = 0.0.obs;
+  final combustionOut = 0.0.obs;
+  final exhaust = 0.0.obs;
+  final turbine = 0.0.obs;
+  final oilIn = 0.0.obs;
+  final oilOut = 0.0.obs;
+  final compressionIn = 0.0.obs;
+  final compressorOut = 0.0.obs;
+  final rpm = 0.0.obs;
   final pageIndex = 0.obs;
   late final PageController pageController;
   final isSessionRunning = false.obs;

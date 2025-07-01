@@ -12,8 +12,10 @@ class LiveSession extends StatelessWidget {
   const LiveSession({super.key});
 
   Widget buildGauge(
+    double screenWidth,
+    bool isPhone,
     String label,
-    RxInt value,
+    RxDouble value,
     String measuringUnit, {
     double max = 1000,
     double min = 0,
@@ -36,7 +38,10 @@ class LiveSession extends StatelessWidget {
               const SizedBox(height: 8),
               SpeedometerChart(
                 titleMargin: 20,
-                dimension: 180,
+                dimension:
+                    AppInit.isWeb && !AppInit.isMobile && !isPhone
+                        ? screenWidth * 0.12
+                        : 160,
                 minValue: min,
                 maxValue: max,
                 value: value.value.toDouble(),
@@ -77,7 +82,7 @@ class LiveSession extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = HomeScreenController.instance;
     final screenType = GetScreenType(context);
-
+    final screenWidth = getScreenWidth(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -97,23 +102,43 @@ class LiveSession extends StatelessWidget {
               crossAxisCount: screenType.isPhone ? 2 : 4,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
-              childAspectRatio: AppInit.isWeb && !AppInit.isMobile ? 1.3 : 0.85,
+              childAspectRatio: AppInit.isWeb && !AppInit.isMobile ? 1.3 : 0.9,
               children: [
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Combustion In",
                   controller.combustionIn,
                   "°C",
                   max: 1024,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Combustion Out",
                   controller.combustionOut,
                   "°C",
                   max: 1024,
                 ),
-                buildGauge("Exhaust", controller.exhaust, "°C", max: 1024),
-                buildGauge("Turbine", controller.turbine, "°C", max: 1024),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
+                  "Exhaust",
+                  controller.exhaust,
+                  "°C",
+                  max: 1024,
+                ),
+                buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
+                  "Turbine",
+                  controller.turbine,
+                  "°C",
+                  max: 1024,
+                ),
+                buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Oil In",
                   controller.oilIn,
                   "°C",
@@ -121,15 +146,36 @@ class LiveSession extends StatelessWidget {
                   min: -55,
                 ),
                 buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
                   "Oil Out",
                   controller.oilOut,
                   "°C",
                   max: 125,
                   min: -55,
                 ),
-                buildGauge("Compression In", controller.compressionIn, "KPA"),
-                buildGauge("Compressor Out", controller.compressorOut, "KPA"),
-                buildGauge("RPM", controller.rpm, "Rev/min", max: 6000),
+                buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
+                  "Compression In",
+                  controller.compressionIn,
+                  "KPA",
+                ),
+                buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
+                  "Compressor Out",
+                  controller.compressorOut,
+                  "KPA",
+                ),
+                buildGauge(
+                  screenWidth,
+                  screenType.isPhone,
+                  "RPM",
+                  controller.rpm,
+                  "Rev/min",
+                  max: 6000,
+                ),
               ],
             ),
             const SizedBox(height: 30),
