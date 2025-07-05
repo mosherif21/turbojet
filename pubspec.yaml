@@ -45,7 +45,7 @@ dev_dependencies:
   shimmer: ^3.0.0
 
 icons_launcher:
-  image_path: "assets/images/logo.jpg"
+  image_path: "assets/images/logo_no_back.png"
   platforms:
     android:
       enable: true
@@ -54,16 +54,16 @@ icons_launcher:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/logo.jpg
+  image: assets/images/branded_logo.jpg
   #branding: assets/images/logo.jpg
   color_dark: "#121212"
-  image_dark: assets/images/logo.jpg
+  image_dark: assets/images/branded_logo.jpg
   #branding_dark: assets/images/logo.jpg
 
   android_12:
-    image: assets/images/logo.jpg
+    image: assets/images/branded_logo.jpg
     icon_background_color: "#ffffff"
-    image_dark: assets/images/logo.jpg
+    image_dark: assets/images/branded_logo.jpg
     icon_background_color_dark: "#121212"
 
 flutter:
