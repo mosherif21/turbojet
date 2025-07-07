@@ -22,11 +22,11 @@ class SessionHistoryPage extends StatelessWidget {
         leading: RegularBackButton(padding: 0),
         title: Text(
           "Session Metrics",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -117,7 +117,7 @@ class SessionHistoryPage extends StatelessWidget {
     return Card(
       elevation: 4,
       margin: EdgeInsets.zero,
-      color: Colors.white,
+      color: Color.fromRGBO(25, 25, 25, 1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
@@ -126,24 +126,28 @@ class SessionHistoryPage extends StatelessWidget {
           children: [
             Text(
               label,
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+                color: Colors.white,
+              ),
             ),
             const SizedBox(height: 8),
             SpeedometerChart(
               titleMargin: 20,
               dimension:
                   AppInit.isWeb && !AppInit.isMobile && !isPhone
-                      ? screenWidth * 0.13
+                      ? screenWidth * 0.15
                       : screenWidth * 0.26,
               minValue: min,
               maxValue: max,
               value: value,
               graphColor: [
-                Colors.grey.shade300,
-                Colors.grey.shade800,
-                Colors.black,
+                Colors.white,
+                Color.fromRGBO(206, 141, 2, 1),
+                Colors.red,
               ],
-              pointerColor: Colors.black,
+              pointerColor: Colors.white,
             ),
             const SizedBox(height: 6),
             Row(
@@ -151,7 +155,11 @@ class SessionHistoryPage extends StatelessWidget {
               children: [
                 Text(
                   value.toString(),
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: Color.fromRGBO(206, 141, 2, 1),
+                  ),
                 ),
                 const SizedBox(width: 4),
                 Text(
@@ -159,7 +167,7 @@ class SessionHistoryPage extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 16,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                 ),
               ],

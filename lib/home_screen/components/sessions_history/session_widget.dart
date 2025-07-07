@@ -20,13 +20,12 @@ class SessionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(color: Colors.grey.shade200, blurRadius: 5)],
-        color: Colors.white,
+        boxShadow: [BoxShadow(color: Colors.grey.shade900, blurRadius: 5)],
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Material(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
+        color: Color.fromRGBO(25, 25, 25, 1),
         child: InkWell(
           onTap: () => onTap(),
           borderRadius: BorderRadius.circular(10),
@@ -45,7 +44,7 @@ class SessionWidget extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 15,
-                    color: Colors.grey.shade600,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -54,7 +53,7 @@ class SessionWidget extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 15,
-                    color: Colors.grey.shade600,
+                    color: Colors.white,
                   ),
                 ),
               ],
@@ -73,15 +72,15 @@ class LoadingSessionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(color: Colors.grey.shade200, blurRadius: 5)],
-        color: Colors.white,
+        boxShadow: [BoxShadow(color: Colors.grey.shade900, blurRadius: 5)],
+        color: Color.fromRGBO(25, 25, 25, 1),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       width: 200,
       height: 160,
       child: Shimmer.fromColors(
-        baseColor: Colors.grey.shade300,
-        highlightColor: Colors.grey.shade200,
+        baseColor: Colors.grey.shade600,
+        highlightColor: Colors.grey.shade500,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -89,7 +88,7 @@ class LoadingSessionWidget extends StatelessWidget {
               height: 24,
               width: 180,
               decoration: const BoxDecoration(
-                color: Colors.grey,
+                color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -98,7 +97,7 @@ class LoadingSessionWidget extends StatelessWidget {
               height: 18,
               width: 140,
               decoration: const BoxDecoration(
-                color: Colors.grey,
+                color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
@@ -126,7 +125,7 @@ class NoSessionsWidget extends StatelessWidget {
         AutoSizeText(
           'No Sessions',
           style: const TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 30,
             fontWeight: FontWeight.w600,
           ),

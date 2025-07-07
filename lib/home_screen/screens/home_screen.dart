@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
             bubbleFillStyle: BubbleFillStyle.fill,
             opacity: 1,
           ),
+          backgroundColor: Colors.black,
           iconSpace: 12.0,
           items: [
             BottomBarItem(
@@ -29,16 +30,16 @@ class HomeScreen extends StatelessWidget {
               title: const Text(
                 'Live session',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color.fromRGBO(206, 141, 2, 1),
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              backgroundColor: Colors.black,
+              backgroundColor: Color.fromRGBO(25, 25, 25, 1),
               selectedColor: Colors.black,
               selectedIcon: const Icon(
                 Icons.rocket_launch_outlined,
-                color: Colors.white,
+                color: Color.fromRGBO(206, 141, 2, 1),
               ),
             ),
             BottomBarItem(
@@ -46,13 +47,16 @@ class HomeScreen extends StatelessWidget {
               title: const Text(
                 'Sessions history',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color.fromRGBO(206, 141, 2, 1),
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              selectedIcon: const Icon(Icons.history, color: Colors.white),
-              backgroundColor: Colors.black,
+              selectedIcon: const Icon(
+                Icons.history,
+                color: Color.fromRGBO(206, 141, 2, 1),
+              ),
+              backgroundColor: Color.fromRGBO(25, 25, 25, 1),
               selectedColor: Colors.black,
             ),
           ],

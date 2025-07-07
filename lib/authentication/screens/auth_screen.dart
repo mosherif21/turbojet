@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:turbo_jet/authentication/components/loginScreen/login_form.dart';
 
 import '../../../general/app_init.dart';
 import '../../../general/general_functions.dart';
 import '../../connectivity/connectivity.dart';
 import '../../general/common_widgets/regular_card.dart';
 import '../../general/constants.dart';
-import '../components/generalAuthComponents/authentication_form.dart';
 
 class AuthenticationScreen extends StatelessWidget {
   const AuthenticationScreen({super.key});
@@ -16,7 +16,7 @@ class AuthenticationScreen extends StatelessWidget {
     final screenHeight = getScreenHeight(context);
     ConnectivityChecker.checkConnection(displayAlert: true);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: StretchingOverscrollIndicator(
           axisDirection: AxisDirection.down,
@@ -37,14 +37,14 @@ class AuthenticationScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image(
-                            image: const AssetImage(kLogoImage),
+                            image: const AssetImage(kLogoNoBackImage),
                             height:
                                 AppInit.notWebMobile
                                     ? screenHeight * 0.39
                                     : screenHeight * 0.32,
                           ),
                           SizedBox(height: screenHeight * 0.05),
-                          const AuthenticationForm(),
+                          const LoginForm(),
                           const SizedBox(height: 20),
                         ],
                       )
@@ -56,7 +56,7 @@ class AuthenticationScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Image(
-                                image: const AssetImage(kLogoImage),
+                                image: const AssetImage(kLogoNoBackImage),
                                 height: screenHeight * 0.5,
                               ),
                               Container(
@@ -65,7 +65,7 @@ class AuthenticationScreen extends StatelessWidget {
                                 ),
                                 child: const RegularCard(
                                   padding: 35,
-                                  child: AuthenticationForm(),
+                                  child: LoginForm(),
                                 ),
                               ),
                             ],

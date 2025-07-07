@@ -24,7 +24,7 @@ class SessionsHistory extends StatelessWidget {
         ),
         backgroundColor: Colors.black,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -52,7 +52,7 @@ class SessionsHistory extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: Theme.of(context).hintColor,
+                          color: Colors.white,
                         ),
                       ),
                       items:
@@ -65,6 +65,7 @@ class SessionsHistory extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                     item,
                                     style: const TextStyle(
+                                      color: Colors.white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -74,7 +75,7 @@ class SessionsHistory extends StatelessWidget {
                               .toList(),
                       dropdownStyleData: DropdownStyleData(
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Color.fromRGBO(25, 25, 25, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),

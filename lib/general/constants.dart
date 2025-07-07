@@ -2,7 +2,9 @@ const double kDefaultPaddingSize = 30.0;
 const double kButtonHeight = 20.0;
 
 //assets
-const String kLogoImage = "assets/images/branded_logo.jpg";
+const String kBrandedLogoImage = "assets/images/branded_logo.jpg";
+const String kLogoNoBackImage = "assets/images/logo_no_back.png";
+const String kBrandedLogoNoBackImage = "assets/images/branded_logo_no_back.png";
 
 //--Lottie assets
 const kNoInternetSwitchAnim = "assets/lottie_animations/noInternetAnim.json";

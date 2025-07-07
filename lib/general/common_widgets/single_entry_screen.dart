@@ -47,11 +47,11 @@ class SingleEntryScreen extends StatelessWidget {
                 ? const RegularBackButton(padding: 0)
                 : const CircleBackButton(padding: 5),
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.white,
-        surfaceTintColor: Colors.white,
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.black,
+        surfaceTintColor: Colors.black,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: StretchingOverscrollIndicator(
           axisDirection: AxisDirection.down,
@@ -78,7 +78,7 @@ class SingleEntryScreen extends StatelessWidget {
                         AutoSizeText(
                           title,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: AppInit.notWebMobile ? 25 : 14,
                             fontWeight: FontWeight.w700,
                           ),
@@ -111,7 +111,7 @@ class SingleEntryScreen extends StatelessWidget {
                                 PasswordResetLinkController.instance;
                             controller.resetPassword();
                           },
-                          color: Colors.black,
+                          color: Color.fromRGBO(206, 141, 2, 1),
                         ),
                         const SizedBox(height: 20),
                       ],
@@ -133,7 +133,7 @@ class SingleEntryScreen extends StatelessWidget {
                                 AutoSizeText(
                                   title,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: AppInit.notWebMobile ? 25 : 14,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -169,7 +169,7 @@ class SingleEntryScreen extends StatelessWidget {
                                         PasswordResetLinkController.instance;
                                     controller.resetPassword();
                                   },
-                                  color: Colors.black,
+                                  color: Color.fromRGBO(206, 141, 2, 1),
                                 ),
                               ],
                             ),

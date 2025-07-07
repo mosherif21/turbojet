@@ -17,6 +17,7 @@ class TextFormFieldRegular extends StatelessWidget {
     this.onSubmitted,
     this.validationFunction,
   });
+
   final String labelText;
   final String hintText;
   final IconData prefixIconData;
@@ -32,37 +33,47 @@ class TextFormFieldRegular extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: TextFormField(
-        textInputAction: textInputAction,
-        onFieldSubmitted:
-            onSubmitted != null ? (enteredString) => onSubmitted!() : null,
-        inputFormatters: inputFormatter != null ? [inputFormatter!] : [],
-        enabled: editable,
-        controller: textController,
-        keyboardType:
-            inputType == InputType.email
-                ? TextInputType.emailAddress
-                : inputType == InputType.numbers
-                ? TextInputType.number
-                : TextInputType.text,
-        cursorColor: Colors.black,
-        decoration: InputDecoration(
-          labelStyle: const TextStyle(color: Colors.black),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: Colors.white,
+            selectionColor: Colors.white24, // highlight color
+            selectionHandleColor: Colors.white, // handle color
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(25)),
-            borderSide: BorderSide(
-              color: Colors.black,
-            ), // Border color when focused
-          ),
-          prefixIcon: Icon(prefixIconData),
-          labelText: labelText,
-          hintText: hintText,
         ),
-        validator: validationFunction,
+        child: TextFormField(
+          style: const TextStyle(color: Colors.white),
+          textInputAction: textInputAction,
+          onFieldSubmitted:
+              onSubmitted != null ? (enteredString) => onSubmitted!() : null,
+          inputFormatters: inputFormatter != null ? [inputFormatter!] : [],
+          enabled: editable,
+          controller: textController,
+          keyboardType:
+              inputType == InputType.email
+                  ? TextInputType.emailAddress
+                  : inputType == InputType.numbers
+                  ? TextInputType.number
+                  : TextInputType.text,
+          cursorColor: Colors.white,
+          decoration: InputDecoration(
+            labelStyle: const TextStyle(color: Colors.white),
+            hintStyle: const TextStyle(color: Colors.white60),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: const BorderSide(color: Colors.white),
+            ),
+            focusedBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            prefixIcon: Icon(prefixIconData, color: Colors.white),
+            labelText: labelText,
+            hintText: hintText,
+          ),
+          validator: validationFunction,
+        ),
       ),
     );
   }

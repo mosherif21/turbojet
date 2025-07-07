@@ -16,45 +16,48 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
-    return Form(
-      key: controller.formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormFieldRegular(
-            labelText: 'E-Mail',
-            hintText: 'Enter your E-Mail',
-            prefixIconData: Icons.email_outlined,
-            textController: controller.emailTextController,
-            inputType: InputType.email,
-            editable: true,
-            textInputAction: TextInputAction.next,
-            validationFunction: validateEmail,
-          ),
-          const SizedBox(height: 10),
-          TextFormFieldPassword(
-            labelText: 'Password',
-            textController: controller.passwordTextController,
-            textInputAction: TextInputAction.done,
-            onSubmitted: () => controller.loginUser(),
-            validationFunction: validatePassword,
-          ),
-          const SizedBox(height: 6),
-          Align(
-            alignment: Alignment.centerRight,
-            child: RegularTextButton(
-              buttonText: 'Forgot Password?',
-              onPressed: () => getToResetPasswordScreen(),
+    return Center(
+      child: Form(
+        key: controller.formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextFormFieldRegular(
+              labelText: 'E-Mail',
+              hintText: 'Enter your E-Mail',
+              prefixIconData: Icons.email_outlined,
+              textController: controller.emailTextController,
+              inputType: InputType.email,
+              editable: true,
+              textInputAction: TextInputAction.next,
+              validationFunction: validateEmail,
             ),
-          ),
-          const SizedBox(height: 6),
-          RegularElevatedButton(
-            enabled: true,
-            buttonText: 'LOGIN',
-            onPressed: () => controller.loginUser(),
-            color: Colors.black,
-          ),
-        ],
+            const SizedBox(height: 10),
+            TextFormFieldPassword(
+              labelText: 'Password',
+              textController: controller.passwordTextController,
+              textInputAction: TextInputAction.done,
+              onSubmitted: () => controller.loginUser(),
+              validationFunction: validatePassword,
+            ),
+            const SizedBox(height: 6),
+            Align(
+              alignment: Alignment.centerRight,
+              child: RegularTextButton(
+                buttonText: 'Forgot Password?',
+                onPressed: () => getToResetPasswordScreen(),
+                textColor: Color.fromRGBO(206, 141, 2, 1),
+              ),
+            ),
+            const SizedBox(height: 6),
+            RegularElevatedButton(
+              enabled: true,
+              buttonText: 'LOGIN',
+              onPressed: () => controller.loginUser(),
+              color: Color.fromRGBO(206, 141, 2, 1),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RegularCard extends StatelessWidget {
-  const RegularCard({
-    super.key,
-    required this.child,
-    required this.padding,
-  });
+  const RegularCard({super.key, required this.child, required this.padding});
   final Widget child;
   final double padding;
 
@@ -17,11 +13,11 @@ class RegularCard extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade300, //New
-            blurRadius: 5.0,
-          )
+            color: Colors.grey.shade900, //New
+            blurRadius: 10.0,
+          ),
         ],
-        color: Colors.white,
+        color: Color.fromRGBO(25, 25, 25, 1),
         borderRadius: const BorderRadius.all(Radius.circular(15.0)),
       ),
       child: Center(child: child),

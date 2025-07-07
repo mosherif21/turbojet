@@ -24,7 +24,7 @@ class LiveSession extends StatelessWidget {
       () => Card(
         elevation: 4,
         margin: EdgeInsets.zero,
-        color: Colors.white,
+        color: Color.fromRGBO(25, 25, 25, 1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
@@ -33,24 +33,28 @@ class LiveSession extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(height: 8),
               SpeedometerChart(
                 titleMargin: 20,
                 dimension:
                     AppInit.isWeb && !AppInit.isMobile && !isPhone
-                        ? screenWidth * 0.13
+                        ? screenWidth * 0.15
                         : screenWidth * 0.26,
                 minValue: min,
                 maxValue: max,
                 value: value.value.toDouble(),
                 graphColor: [
-                  Colors.grey.shade300,
-                  Colors.grey.shade800,
-                  Colors.black,
+                  Colors.white,
+                  Color.fromRGBO(206, 141, 2, 1),
+                  Colors.red,
                 ],
-                pointerColor: Colors.black,
+                pointerColor: Colors.white,
               ),
               const SizedBox(height: 6),
               Row(
@@ -58,7 +62,11 @@ class LiveSession extends StatelessWidget {
                 children: [
                   Text(
                     value.value.toString(),
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Color.fromRGBO(206, 141, 2, 1),
+                    ),
                   ),
                   const SizedBox(width: 4),
                   Text(
@@ -66,7 +74,7 @@ class LiveSession extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w800,
                       fontSize: 16,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -91,7 +99,7 @@ class LiveSession extends StatelessWidget {
         ),
         backgroundColor: Colors.black,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -182,12 +190,15 @@ class LiveSession extends StatelessWidget {
                     transitionType: TransitionType.LEFT_TO_RIGHT,
                     textStyle: TextStyle(
                       fontSize: 16,
-                      color: Colors.black,
+                      color:
+                          controller.isStartButtonSelected.value
+                              ? Colors.white
+                              : Color.fromRGBO(206, 141, 2, 1),
                       fontWeight: FontWeight.w800,
                     ),
-                    backgroundColor: Colors.white,
-                    selectedBackgroundColor: Colors.black,
-                    borderColor: Colors.black,
+                    backgroundColor: Colors.black,
+                    selectedBackgroundColor: Color.fromRGBO(206, 141, 2, 1),
+                    borderColor: Color.fromRGBO(206, 141, 2, 1),
                     borderRadius: 50,
                     borderWidth: 2,
                     onPress: () {
