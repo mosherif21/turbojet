@@ -17,8 +17,8 @@ class LiveSession extends StatelessWidget {
     String label,
     RxDouble value,
     String measuringUnit, {
-    double max = 1000,
-    double min = 0,
+    RxDouble? max,
+    RxDouble? min,
   }) {
     return Obx(
       () => Card(
@@ -46,8 +46,8 @@ class LiveSession extends StatelessWidget {
                     AppInit.isWeb && !AppInit.isMobile && !isPhone
                         ? screenWidth * 0.15
                         : screenWidth * 0.26,
-                minValue: min,
-                maxValue: max,
+                minValue: min?.value ?? 0,
+                maxValue: max?.value ?? 1000,
                 value: value.value.toDouble(),
                 graphColor: [
                   Colors.white,
@@ -118,7 +118,8 @@ class LiveSession extends StatelessWidget {
                   "Combustion In",
                   controller.combustionIn,
                   "°C",
-                  max: 1024,
+                  max: controller.combustionInMax,
+                  min: controller.combustionInMin,
                 ),
                 buildGauge(
                   screenWidth,
@@ -126,7 +127,8 @@ class LiveSession extends StatelessWidget {
                   "Combustion Out",
                   controller.combustionOut,
                   "°C",
-                  max: 1024,
+                  max: controller.combustionOutMax,
+                  min: controller.combustionOutMin,
                 ),
                 buildGauge(
                   screenWidth,
@@ -134,7 +136,8 @@ class LiveSession extends StatelessWidget {
                   "Exhaust",
                   controller.exhaust,
                   "°C",
-                  max: 1024,
+                  max: controller.exhaustMax,
+                  min: controller.exhaustMin,
                 ),
                 buildGauge(
                   screenWidth,
@@ -142,7 +145,8 @@ class LiveSession extends StatelessWidget {
                   "Turbine",
                   controller.turbine,
                   "°C",
-                  max: 1024,
+                  max: controller.turbineMax,
+                  min: controller.turbineMin,
                 ),
                 buildGauge(
                   screenWidth,
@@ -150,8 +154,8 @@ class LiveSession extends StatelessWidget {
                   "Oil In",
                   controller.oilIn,
                   "°C",
-                  max: 125,
-                  min: -55,
+                  max: controller.oilInMax,
+                  min: controller.oilInMin,
                 ),
                 buildGauge(
                   screenWidth,
@@ -159,8 +163,8 @@ class LiveSession extends StatelessWidget {
                   "Oil Out",
                   controller.oilOut,
                   "°C",
-                  max: 125,
-                  min: -55,
+                  max: controller.oilOutMax,
+                  min: controller.oilOutMin,
                 ),
                 buildGauge(
                   screenWidth,
@@ -168,7 +172,8 @@ class LiveSession extends StatelessWidget {
                   "RPM",
                   controller.rpm,
                   "Rev/min",
-                  max: 10000,
+                  max: controller.rpmMax,
+                  min: controller.rpmMin,
                 ),
               ],
             ),

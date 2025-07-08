@@ -14,9 +14,16 @@ class SessionHistoryPage extends StatelessWidget {
   });
   final EngineSessionModel sessionModel;
   final GetScreenType screenType;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = getScreenWidth(context);
+
+    double dynamicMin(double value, [double fallback = 0]) =>
+        value < fallback ? value : fallback;
+    double dynamicMax(double value, [double fallback = 1000]) =>
+        value > fallback ? value : fallback;
+
     return Scaffold(
       appBar: AppBar(
         leading: RegularBackButton(padding: 0),
@@ -43,59 +50,59 @@ class SessionHistoryPage extends StatelessWidget {
                   screenWidth,
                   screenType.isPhone,
                   "Combustion In",
-                  double.parse(sessionModel.combustionIn.toString()),
+                  sessionModel.combustionIn!.toDouble(),
                   "°C",
-                  max: 1024,
+                  max: dynamicMax(sessionModel.combustionIn!.toDouble(), 1024),
                 ),
                 buildGauge(
                   screenWidth,
                   screenType.isPhone,
                   "Combustion Out",
-                  double.parse(sessionModel.combustionOut.toString()),
+                  sessionModel.combustionOut!.toDouble(),
                   "°C",
-                  max: 1024,
+                  max: dynamicMax(sessionModel.combustionOut!.toDouble(), 1024),
                 ),
                 buildGauge(
                   screenWidth,
                   screenType.isPhone,
                   "Exhaust",
-                  double.parse(sessionModel.exhaust.toString()),
+                  sessionModel.exhaust!.toDouble(),
                   "°C",
-                  max: 1024,
+                  max: dynamicMax(sessionModel.exhaust!.toDouble(), 1024),
                 ),
                 buildGauge(
                   screenWidth,
                   screenType.isPhone,
                   "Turbine",
-                  double.parse(sessionModel.turbine.toString()),
+                  sessionModel.turbine!.toDouble(),
                   "°C",
-                  max: 1024,
+                  max: dynamicMax(sessionModel.turbine!.toDouble(), 1024),
                 ),
                 buildGauge(
                   screenWidth,
                   screenType.isPhone,
                   "Oil In",
-                  double.parse(sessionModel.oilIn.toString()),
+                  sessionModel.oilIn!.toDouble(),
                   "°C",
-                  max: 125,
-                  min: -55,
+                  max: dynamicMax(sessionModel.oilIn!.toDouble(), 125),
+                  min: dynamicMin(sessionModel.oilIn!.toDouble(), -55),
                 ),
                 buildGauge(
                   screenWidth,
                   screenType.isPhone,
                   "Oil Out",
-                  double.parse(sessionModel.oilOut.toString()),
+                  sessionModel.oilOut!.toDouble(),
                   "°C",
-                  max: 125,
-                  min: -55,
+                  max: dynamicMax(sessionModel.oilOut!.toDouble(), 125),
+                  min: dynamicMin(sessionModel.oilOut!.toDouble(), -55),
                 ),
                 buildGauge(
                   screenWidth,
                   screenType.isPhone,
                   "RPM",
-                  double.parse(sessionModel.rpm.toString()),
+                  sessionModel.rpm!.toDouble(),
                   "Rev/min",
-                  max: 10000,
+                  max: dynamicMax(sessionModel.rpm!.toDouble(), 10000),
                 ),
               ],
             ),

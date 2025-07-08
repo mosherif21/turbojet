@@ -15,7 +15,6 @@ class SessionsHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = HomeScreenController.instance;
     final screenType = GetScreenType(context);
-    final screenHeight = getScreenHeight(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
