@@ -168,7 +168,7 @@ class LiveSession extends StatelessWidget {
                   "RPM",
                   controller.rpm,
                   "Rev/min",
-                  max: 6000,
+                  max: 10000,
                 ),
               ],
             ),

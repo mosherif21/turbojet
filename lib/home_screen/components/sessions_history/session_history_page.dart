@@ -95,7 +95,7 @@ class SessionHistoryPage extends StatelessWidget {
                   "RPM",
                   double.parse(sessionModel.rpm.toString()),
                   "Rev/min",
-                  max: 6000,
+                  max: 10000,
                 ),
               ],
             ),
