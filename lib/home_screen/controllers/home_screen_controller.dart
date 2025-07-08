@@ -20,7 +20,7 @@ import '../components/models.dart';
 class HomeScreenController extends GetxController {
   static HomeScreenController get instance => Get.find();
 
-  final String espIp = "http://172.20.10.2";
+  final String espIp = "http://192.168.1.18";
 
   // Metrics
   final combustionIn = 0.0.obs;
@@ -397,7 +397,7 @@ class HomeScreenController extends GetxController {
     try {
       final response = await http
           .get(Uri.parse('$espIp/metrics'))
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 4));
 
       if (response.statusCode == 200 && currentSessionId != null) {
         final data = jsonDecode(response.body);
@@ -447,7 +447,7 @@ class HomeScreenController extends GetxController {
       }
     } catch (e) {
       showSnackBar(
-        text: "Failed to fetch metrics",
+        text: "Fetching timed out, engine didn't return readings",
         snackBarType: SnackBarType.error,
       );
       if (kDebugMode) print("Failed to fetch metrics: $e");
