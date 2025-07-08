@@ -31,7 +31,7 @@ class SessionHistoryPage extends StatelessWidget {
           "Session Metrics",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black, 
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
