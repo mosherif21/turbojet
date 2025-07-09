@@ -21,7 +21,7 @@ enum AuthType { emailLogin, emailRegister }
 
 enum Language { english, arabic }
 
-enum InputType { email, phone, text, numbers }
+enum InputType { email, phone, text, numbers, url }
 
 enum ScreenSize { small, medium, large }
 

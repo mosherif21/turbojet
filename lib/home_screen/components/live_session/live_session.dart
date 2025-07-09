@@ -8,6 +8,8 @@ import 'package:turbo_jet/general/app_init.dart';
 import 'package:turbo_jet/general/general_functions.dart';
 import 'package:turbo_jet/home_screen/controllers/home_screen_controller.dart';
 
+import 'ip_config_sheet.dart';
+
 class LiveSession extends StatelessWidget {
   const LiveSession({super.key});
 
@@ -98,7 +100,28 @@ class LiveSession extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
         ),
         backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.network_wifi_rounded,
+              color: Colors.white,
+              size: 22,
+            ),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                ),
+                backgroundColor: Color.fromRGBO(25, 25, 25, 1),
+                builder: (_) => IpConfigBottomSheet(),
+              );
+            },
+          ),
+        ],
       ),
+
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

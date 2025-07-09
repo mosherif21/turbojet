@@ -20,9 +20,12 @@ import '../components/models.dart';
 class HomeScreenController extends GetxController {
   static HomeScreenController get instance => Get.find();
 
-  final String espIp = "http://192.168.1.18";
+  final espIp = "http://172.20.10.4".obs;
 
-  // Metrics
+  void updateEspIp(String newIp) {
+    espIp.value = newIp;
+  }
+
   final combustionIn = 0.0.obs;
   final combustionOut = 0.0.obs;
   final exhaust = 0.0.obs;
@@ -166,7 +169,7 @@ class HomeScreenController extends GetxController {
   Future<void> emergencyStop() async {
     try {
       final response = await http
-          .post(Uri.parse('$espIp/emergencyStop'))
+          .post(Uri.parse('${espIp.value}/emergencyStop'))
           .timeout(const Duration(seconds: 3));
       if (kDebugMode) print(response.body);
       if (response.statusCode == 200) {
@@ -198,7 +201,7 @@ class HomeScreenController extends GetxController {
   Future<void> stopEngine() async {
     try {
       final response = await http
-          .post(Uri.parse('$espIp/stop'))
+          .post(Uri.parse('${espIp.value}/stop'))
           .timeout(const Duration(seconds: 3));
       if (kDebugMode) print(response.body);
       if (response.statusCode == 200) {
@@ -216,7 +219,7 @@ class HomeScreenController extends GetxController {
   Future<void> startEngine() async {
     try {
       final response = await http
-          .post(Uri.parse('$espIp/start'))
+          .post(Uri.parse('${espIp.value}/start'))
           .timeout(const Duration(seconds: 6));
       if (response.statusCode == 200) {
         AppInit.player.setAsset(kStartupSounds).whenComplete(() {
@@ -396,7 +399,7 @@ class HomeScreenController extends GetxController {
   Future<void> fetchMetrics() async {
     try {
       final response = await http
-          .get(Uri.parse('$espIp/metrics'))
+          .get(Uri.parse('${espIp.value}/metrics'))
           .timeout(const Duration(seconds: 4));
 
       if (response.statusCode == 200 && currentSessionId != null) {
