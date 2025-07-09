@@ -110,12 +110,12 @@ class LiveSession extends StatelessWidget {
             onPressed: () {
               showModalBottomSheet(
                 context: context,
-
-                shape: RoundedRectangleBorder(
+                isScrollControlled: true,
+                backgroundColor: const Color.fromRGBO(25, 25, 25, 1),
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 ),
-                backgroundColor: Color.fromRGBO(25, 25, 25, 1),
-                builder: (_) => IpConfigBottomSheet(),
+                builder: (context) => const IpConfigBottomSheet(),
               );
             },
           ),
